@@ -66,16 +66,16 @@ while stop!=1:
                     gridpointer=gridpointer+1
     stringpointer=0
     gridcounter=0
-    gridx=0
-    gridy=0
+    column=0
+    row=0
     while gridcounter<25:
-        grid[gridy][gridx]=keystring[stringpointer]
+        grid[row][column]=keystring[stringpointer]
         gridcounter=gridcounter+1
         stringpointer=stringpointer+1
-        gridx=gridx+1
-        if gridx==5:
-            gridx=0
-            gridy=gridy+1
+        column=column+1
+        if column==5:
+            column=0
+            row=row+1
     loop=1
     while loop==1:
         if task==("1"):
@@ -111,39 +111,39 @@ while stop!=1:
                 outputlist.append(startchar)
                 charpointer=charpointer+1
             else:
-                for gridy, sublist in enumerate(grid):
+                for row, sublist in enumerate(grid):
                     if startchar in sublist:
-                        gridx=sublist.index(startchar)
+                        column=sublist.index(startchar)
                         break
                 if rose==0:
-                    gridy=gridy-1
+                    row=row-1
                 elif rose==1:
-                    gridy=gridy-1
-                    gridx=gridx+1
+                    row=row-1
+                    column=column+1
                 elif rose==2:
-                    gridx=gridx+1
+                    column=column+1
                 elif rose==3:
-                    gridy=gridy+1
-                    gridx=gridx+1
+                    row=row+1
+                    column=column+1
                 elif rose==4:
-                    gridy=gridy+1
+                    row=row+1
                 elif rose==5:
-                    gridy=gridy+1
-                    gridx=gridx-1
+                    row=row+1
+                    column=column-1
                 elif rose==6:
-                    gridx=gridx-1
+                    column=column-1
                 elif rose==7:
-                    gridy=gridy-1
-                    gridx=gridx-1
-                if gridy==5:
-                    gridy=0
-                if gridy==-1:
-                    gridy=4
-                if gridx==5:
-                    gridx=0
-                if gridx==-1:
-                    gridx=4
-                outputlist.append(grid[gridy][gridx])
+                    row=row-1
+                    column=column-1
+                if row==5:
+                    row=0
+                if row==-1:
+                    row=4
+                if column==5:
+                    column=0
+                if column==-1:
+                    column=4
+                outputlist.append(grid[row][column])
                 charpointer=charpointer+1
                 rose=rose+1
                 if rose==8:
@@ -168,7 +168,7 @@ while stop!=1:
     print(outputstring)
     loop=1
     while loop==1:
-        repeat=input("\nWould you like to continue using the software?\n [1] yes \n [2] no, end the program\n")
+        repeat=input("\nWould you like to continue using the program?\n [1] yes \n [2] no, end the program\n")
         if repeat==("1"):
             loop=0
         if repeat==("2"):
